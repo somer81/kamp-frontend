@@ -5,19 +5,34 @@
 >
   <span class="sr-only">Loading...</span>
 </div>
+<div class="mb-3">
+  <label for="filterText" class="form-label">Search Product</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="search key"
+  />
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+  {{ filterText }} is searched
+</div>
 <table *ngIf="dataLoaded == true" class="table">
   <thead>
     <th>Id</th>
     <th>Product Name</th>
     <th>Category Id</th>
     <th>Price</th>
+    <th>Price + VAT</th>
     <th>Stocks</th>
   </thead>
   <tr *ngFor="let product of products">
     <td>{{ product.productId }}</td>
-    <td>{{ product.productName }}</td>
+    <td>{{ product.productName | uppercase }}</td>
     <td>{{ product.categoryId }}</td>
-    <td>{{ product.unitPrice }}</td>
+    <td>{{ product.unitPrice | currency }}</td>
+    <td>{{ product.unitPrice | vatAdded: 10 | currency }}</td>
     <td>{{ product.unitsInStock }}</td>
   </tr>
 </table>

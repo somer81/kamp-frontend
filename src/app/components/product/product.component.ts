@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
- 
+  filterText =""
   dataLoaded = false;
   products:Product[] = [];
   productResponseModel:ListResponseModel<Product> ={

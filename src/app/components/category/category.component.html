@@ -1,4 +1,5 @@
 <ul clss="list-group">
+  <li [class]="getAllCategoryClass()" routerLink="/products/">All products</li>
   <li
     (click)="setCurrentCategory(category)"
     routerLink="/products/category/{{ category.categoryId }}"
