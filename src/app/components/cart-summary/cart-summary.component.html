@@ -1,0 +1,18 @@
+<li *ngIf="cartItems" class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Your Basket
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li *ngFor="let cartItem of cartItems" class="dropdown-item" >
+           <span class="badge bg-secondary">{{cartItem.quantity}}</span> {{cartItem.product.productName}} <span (click)="removeFromCart(cartItem.product)" class="badge bg-secondary">Remove</span></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item">Go to basket</a></li>
+          </ul>
+        </li>
